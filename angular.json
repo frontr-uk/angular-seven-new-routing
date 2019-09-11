@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "ban-user": {
+      "root": "projects/ban-user",
+      "sourceRoot": "projects/ban-user/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ban-user/tsconfig.lib.json",
+            "project": "projects/ban-user/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ban-user/src/test.ts",
+            "tsConfig": "projects/ban-user/tsconfig.spec.json",
+            "karmaConfig": "projects/ban-user/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ban-user/tsconfig.lib.json",
+              "projects/ban-user/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "bananas"
